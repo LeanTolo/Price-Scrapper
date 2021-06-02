@@ -19,10 +19,7 @@ class MercadoLibreBot(object):
         self.mercadolibre_url = "https://www.mercadolibre.com.ar/"
         self.items = items
 
-        self.profile = webdriver.FirefoxProfile()
-        self.options = Options()
-        self.driver = webdriver.Firefox(firefox_profile=self.profile,
-                                        firefox_options=self.options)
+        self.driver = webdriver.Chrome()
         self.driver.get(self.mercadolibre_url)
 
     def search_items(self):
