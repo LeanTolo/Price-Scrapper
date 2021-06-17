@@ -7,7 +7,7 @@ import time
 
 class EbayBot(object):
     def main(search_term):
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome("C:/Users/Tolo/Desktop/Metod 2 Scrapper/Scrapper/Price-Scrapper/chromedriver.exe")
 
         home_link = "https://www.ebay.com/"
         search_kw = search_term.replace(" ", "+")
@@ -22,7 +22,7 @@ class EbayBot(object):
         item_reviews_amt = []
         item_price = []
 
-        pg_amount = 4
+        pg_amount = 3
 
         page = BeautifulSoup(driver.page_source, 'html.parser')
 
@@ -75,6 +75,8 @@ class EbayBot(object):
             next_btn.click()
             time.sleep(2)
 
+        driver.close()
+
         item_list = pd.DataFrame({
             'TITLE': item_title,
             'STATUS': item_status,
@@ -84,7 +86,7 @@ class EbayBot(object):
             'LINK': item_link
         })
 
-        item_list.drop_duplicates().sort_values(by=['PRICE', 'SCORE', 'REVIEWS_AMT'], ascending=[True, False, False]).to_csv(r'prueba.csv', index=None,
+        item_list.drop_duplicates().sort_values(by=['PRICE', 'SCORE', 'REVIEWS_AMT'], ascending=[True, False, False]).to_csv(r'Ebay.csv', index=None,
             header=True, encoding='utf-8-sig')
 
 

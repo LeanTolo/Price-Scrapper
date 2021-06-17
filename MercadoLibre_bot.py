@@ -19,7 +19,7 @@ class MercadoLibreBot(object):
         self.mercadolibre_url = "https://www.mercadolibre.com.ar/"
         self.items = items
 
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome("C:/Users/Tolo/Desktop/Metod 2 Scrapper/Scrapper/Price-Scrapper/chromedriver.exe")
         self.driver.get(self.mercadolibre_url)
 
     def search_items(self):

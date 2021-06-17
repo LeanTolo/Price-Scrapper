@@ -46,7 +46,7 @@ class AmazonBot(object):
     ##MAIN
     def main(search_term):
         ##inicializamos el webdriver
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome("C:/Users/Tolo/Desktop/Metod 2 Scrapper/Scrapper/Price-Scrapper/chromedriver.exe")
 
         records = []
         url = get_url(search_term)
@@ -69,7 +69,7 @@ class AmazonBot(object):
         item_list = pd.DataFrame.from_records(records,columns=("Description", "Price", "Rating", "Reviews", "Url"))
 
 
-        item_list.drop_duplicates().to_csv(r'prueba.csv', index=None,
+        item_list.drop_duplicates().to_csv(r'Amazon.csv', index=None,
                         header=True, encoding='utf-8-sig')
 
         
