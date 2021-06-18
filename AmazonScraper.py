@@ -51,7 +51,7 @@ class AmazonBot(object):
         records = []
         url = get_url(search_term)
 
-        ##va de la pagina 1 al 20
+        ##va de la pagina 1 al 4
         for page in range (1,4):
             driver.get(url.format(page))
             soup =BeautifulSoup(driver.page_source, 'html.parser')
